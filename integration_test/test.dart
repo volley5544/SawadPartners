@@ -47,13 +47,20 @@ void main() async {
       EnginePhase.sendSemanticsUpdate,
       const Duration(milliseconds: 10),
     );
+    await tester.tap(find.byKey(const ValueKey('emailAddress_n8gw')));
     await tester.enterText(find.byKey(const ValueKey('emailAddress_n8gw')),
         'volley5544@gmail.com');
     FocusManager.instance.primaryFocus?.unfocus();
+    await tester.tap(find.byKey(const ValueKey('password_7vdu')));
     await tester.enterText(
         find.byKey(const ValueKey('password_7vdu')), 'wattanai5544');
     FocusManager.instance.primaryFocus?.unfocus();
     await tester.tap(find.byKey(const ValueKey('Button-Login_nb8j')));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 5),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 10),
+    );
     expect(find.byKey(const ValueKey('SetPinPage_y3yn')), findsNothing);
   });
 }

@@ -65,8 +65,6 @@ void main() async {
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('Button-Login_nb8j')));
     await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const ValueKey('PinCode_oy64')));
-    await tester.pumpAndSettle();
     await tester.enterText(
         find.byKey(const ValueKey('PinCode_oy64')), '111111');
     FocusManager.instance.primaryFocus?.unfocus();

@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -43,120 +42,7 @@ class _LoginWidgetState extends State<LoginWidget>
     _model = createModel(context, () => LoginModel());
 
     // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.lockOrientation();
-      if (FFAppState().LoggedIn) {
-        context.pushNamed(HomeWidget.routeName);
-
-        return;
-      } else {
-        FFAppState().deleteRefIDlist();
-        FFAppState().refIDlist = [];
-
-        FFAppState().deleteContractlist();
-        FFAppState().Contractlist = [];
-
-        FFAppState().deleteThaiID1list();
-        FFAppState().ThaiID1list = [];
-
-        FFAppState().deleteCustomerNamelist();
-        FFAppState().CustomerNamelist = [];
-
-        FFAppState().deleteAddresslist();
-        FFAppState().Addresslist = [];
-
-        FFAppState().deleteDistrictlist();
-        FFAppState().Districtlist = [];
-
-        FFAppState().deleteProvincelist();
-        FFAppState().Provincelist = [];
-
-        FFAppState().deleteZipCodelist();
-        FFAppState().ZipCodelist = [];
-
-        FFAppState().deleteTelephonelist();
-        FFAppState().Telephonelist = [];
-
-        FFAppState().deleteCarBrandlist();
-        FFAppState().CarBrandlist = [];
-
-        FFAppState().deleteColorlist();
-        FFAppState().Colorlist = [];
-
-        FFAppState().deleteSurveyorlist();
-        FFAppState().Surveyorlist = [];
-
-        FFAppState().deleteStatusPinPointlist();
-        FFAppState().StatusPinPointlist = [];
-
-        FFAppState().deleteCallPinpoint();
-        FFAppState().callPinpoint = false;
-
-        safeSetState(() {});
-        FFAppState().deleteCustomerNamePending();
-        FFAppState().customerNamePending = [];
-
-        FFAppState().deleteThaiIDPending();
-        FFAppState().thaiIDPending = [];
-
-        FFAppState().deleteContractPending();
-        FFAppState().contractPending = [];
-
-        FFAppState().deleteAddressPending();
-        FFAppState().addressPending = [];
-
-        FFAppState().deleteDistrictPending();
-        FFAppState().districtPending = [];
-
-        FFAppState().deleteProvincePending();
-        FFAppState().provincePending = [];
-
-        FFAppState().deletePostCodePending();
-        FFAppState().postCodePending = [];
-
-        FFAppState().deletePhoneNumberPending();
-        FFAppState().phoneNumberPending = [];
-
-        FFAppState().deleteCarbrandPending();
-        FFAppState().carbrandPending = [];
-
-        FFAppState().deleteCarcolorPending();
-        FFAppState().carcolorPending = [];
-
-        FFAppState().deleteAns1Pending();
-        FFAppState().ans1Pending = [];
-
-        FFAppState().deleteAns2Pending();
-        FFAppState().ans2Pending = [];
-
-        FFAppState().deleteDropbox1Pending();
-        FFAppState().dropbox1Pending = [];
-
-        FFAppState().deleteDropbox2Pending();
-        FFAppState().dropbox2Pending = [];
-
-        FFAppState().deleteDropbox3Pending();
-        FFAppState().dropbox3Pending = [];
-
-        FFAppState().deleteLatlngPending();
-        FFAppState().latlngPending = [];
-
-        FFAppState().deleteRefIDPending();
-        FFAppState().refIDPending = [];
-
-        safeSetState(() {});
-      }
-
-      if (!FFAppState().firstUseApp) {
-        context.pushNamed(IntroductionPageWidget.routeName);
-
-        return;
-      }
-      _model.location = await actions.locationPermission();
-      _model.userCustom = await queryUserCustomRecordOnce(
-        singleRecord: true,
-      ).then((s) => s.firstOrNull);
-    });
+    SchedulerBinding.instance.addPostFrameCallback((_) async {});
 
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();

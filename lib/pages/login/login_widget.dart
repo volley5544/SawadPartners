@@ -1,13 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -27,126 +26,24 @@ class LoginWidget extends StatefulWidget {
   State<LoginWidget> createState() => _LoginWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget>
-    with TickerProviderStateMixin {
+class _LoginWidgetState extends State<LoginWidget> {
   late LoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => LoginModel());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {});
+
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
 
     _model.passwordTextController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
-
-    animationsMap.addAll({
-      'textFieldOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 200.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 200.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 200.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 40.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'textFieldOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 200.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 200.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 200.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 60.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'rowOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 400.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 400.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 400.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 80.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'buttonOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 600.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 600.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 600.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.8, 0.8),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'textOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 800.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 800.0.ms,
-            duration: 500.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-    });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -359,8 +256,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 validator: _model
                                                     .emailAddressTextControllerValidator
                                                     .asValidator(context),
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'textFieldOnPageLoadAnimation1']!),
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -489,8 +385,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                               validator: _model
                                                   .passwordTextControllerValidator
                                                   .asValidator(context),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textFieldOnPageLoadAnimation2']!),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -949,14 +844,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         BorderRadius.circular(
                                                             50.0),
                                                   ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'buttonOnPageLoadAnimation']!);
+                                                );
                                               },
                                             ),
                                           ),
                                         ],
-                                      ).animateOnPageLoad(animationsMap[
-                                          'rowOnPageLoadAnimation']!),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -1013,8 +906,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                               .bodyMediumIsCustom,
                                     ),
                               ),
-                            ).animateOnPageLoad(
-                                animationsMap['textOnPageLoadAnimation']!),
+                            ),
                           ),
                         ),
                       ],

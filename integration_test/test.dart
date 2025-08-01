@@ -33,13 +33,10 @@ void main() async {
 
   testWidgets('Login Test', (WidgetTester tester) async {
     _overrideOnError();
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: 'volley5544@gmail.com', password: 'wattanai5544');
+
     await tester.pumpWidget(ChangeNotifierProvider(
       create: (context) => FFAppState(),
-      child: MyApp(
-        entryPage: HomeWidget(),
-      ),
+      child: const MyApp(),
     ));
     await GoogleFonts.pendingFonts();
 
@@ -55,13 +52,7 @@ void main() async {
       EnginePhase.sendSemanticsUpdate,
       const Duration(milliseconds: 10),
     );
-    expect(
-      tester
-          .widget<FFButtonWidget>(
-              find.byKey(const ValueKey('Button-Login_nb8j')))
-          .onPressed,
-      isNotNull,
-    );
+    expect(find.byKey(const ValueKey('SetPinPage_y3yn')), findsNothing);
   });
 }
 

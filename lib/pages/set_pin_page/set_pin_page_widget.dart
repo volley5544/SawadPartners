@@ -113,6 +113,7 @@ class _SetPinPageWidgetState extends State<SetPinPageWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             12.0, 32.0, 12.0, 0.0),
                         child: PinCodeTextField(
+                          key: ValueKey('PinCode_oy64'),
                           autoDisposeControllers: false,
                           appContext: context,
                           length: 6,
@@ -166,6 +167,7 @@ class _SetPinPageWidgetState extends State<SetPinPageWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 44.0),
                   child: FFButtonWidget(
+                    key: ValueKey('Button_w67x'),
                     onPressed: () async {
                       if (!(_model.pinCodeController!.text != '')) {
                         ScaffoldMessenger.of(context).showSnackBar(

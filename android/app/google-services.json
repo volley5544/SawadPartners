@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "693895981513",
+    "project_id": "sawad-partner-mobile-app",
+    "storage_bucket": "sawad-partner-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693895981513:android:37f6742bffb5e55150a018",
+        "android_client_info": {
+          "package_name": "com.srisawad.sawadpartner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbONEIJKLMtg75_xRdWnxIfnahUiUkr7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
